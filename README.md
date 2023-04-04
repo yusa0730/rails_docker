@@ -1,24 +1,31 @@
-# README
+# 環境構築方法
 
-This README would normally document whatever steps are necessary to get the
-application up and running.
+### リポジトリから git clone してくる
 
-Things you may want to cover:
+```
+git clone リポジトリURL
+```
 
-* Ruby version
+### ① 以下のコマンドを実行して、Dockerfile をビルドして docker image を作成する
 
-* System dependencies
+```
+docker compose build
+```
 
-* Configuration
+### ② 以下のコマンドを実行して、作成した docker image から web コンテナを起動してコンテナ内に入り、開発用の db をセットアップする
 
-* Database creation
+```
+docker compose run --rm web bin/setup
+```
 
-* Database initialization
+### ③ 以下のコマンドを実行して、web と db のコンテナを起動する
 
-* How to run the test suite
+```
+docker compose up
+```
 
-* Services (job queues, cache servers, search engines, etc.)
+### ④ 以下の開発用アプリケーションの URL を web ブラウザで入力する
 
-* Deployment instructions
-
-* ...
+```
+http://localhost:3000
+```
